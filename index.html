@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Van De Graaff Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Van De Graaff Generator</h1>
+        <div class="header-icons">
+            <div class="header-icon">?</div>
+            <div class="header-icon">□</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="simulator-area">
+            <div class="simulator-frame">
+                <div class="simulator-image">
+                    <div class="lab-table"></div>
+                    
+                    <!-- Small sphere setup -->
+                    <div class="small-base"></div>
+                    <div class="small-stand"></div>
+                    <div class="small-sphere" id="small-sphere"></div>
+                    
+                    <!-- Large sphere setup -->
+                    <div class="generator-base"></div>
+                    <div class="column"></div>
+                    <div class="column-cap"></div>
+                    <div class="sphere-connector"></div>
+                    <div class="large-sphere" id="large-sphere"></div>
+                    
+                    <!-- Belt window and belt (visible when dissected) -->
+                    <div class="belt-window" id="belt-window">
+                        <div class="belt" id="moving-belt"></div>
+                    </div>
+                    
+                    <!-- Control unit -->
+                    <div class="control-box"></div>
+                    <div class="control-knob" id="control-knob"></div>
+                    <div class="control-screen" id="control-screen"></div>
+                    
+                    <!-- Electric field lines -->
+                    <div class="field-line" id="field1" style="left: 55%; bottom: 195px; width: 180px; height: 180px;"></div>
+                    <div class="field-line" id="field2" style="left: 53%; bottom: 185px; width: 220px; height: 220px;"></div>
+                    <div class="field-line" id="field3" style="left: 51%; bottom: 175px; width: 260px; height: 260px;"></div>
+                    
+                    <!-- Hair strands to demonstrate effect -->
+                    <div class="hair-strand" id="hair1" style="left: calc(55% + 60px); bottom: 345px;"></div>
+                    <div class="hair-strand" id="hair2" style="left: calc(55% + 70px); bottom: 345px;"></div>
+                    <div class="hair-strand" id="hair3" style="left: calc(55% + 80px); bottom: 345px;"></div>
+                    <div class="hair-strand" id="hair4" style="left: calc(55% + 90px); bottom: 345px;"></div>
+                    <div class="hair-strand" id="hair5" style="left: calc(55% + 50px); bottom: 345px;"></div>
+                    
+                    <!-- Spark effect -->
+                    <div class="spark" id="spark">
+                        <svg width="100%" height="100%">
+                            <path class="spark-path" id="spark-path" d="M0,0 L0,0" />
+                        </svg>
+                    </div>
+                    
+                    <!-- Charge Level Indicator -->
+                    <div class="charge-level">
+                        <div class="charge-fill" id="charge-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls-panel">
+            <div class="panel-section">
+                <div class="panel-header" id="variables-header">
+                    <span>VARIABLES</span>
+                    <span class="panel-arrow">▼</span>
+                </div>
+                <div class="panel-content" id="variables-content">
+                    <div class="control-group">
+                        <button class="button" id="power-button">TURN ON</button>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Adjust distance: <span id="distance-value">1</span></label>
+                        <div class="slider-container">
+                            <div class="slider">
+                                <div class="slider-thumb" id="distance-slider"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label class="control-label">Voltage level: <span id="voltage-level">1</span></label>
+                        <div class="slider-container">
+                            <div class="slider">
+                                <div class="slider-thumb" id="voltage-slider"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <button class="button" id="dissect-button">DISSECT</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel-section">
+                <div class="panel-header" id="results-header">
+                    <span>RESULT</span>
+                    <span class="panel-arrow">▼</span>
+                </div>
+                <div class="panel-content" id="results-area">
+                    <!-- Results will be shown here -->
+                    <p id="result-text">Turn on the Van De Graaff generator to see results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
